@@ -1,0 +1,8 @@
+faiss-cpu==1.11.0
+streamlit
+langchain
+chromadb
+ollama
+pypdf
+python-docx
+tiktoken
