@@ -53,10 +53,10 @@ if question:
         with st.spinner("Generating a response..."):
             result = qa_chain.invoke({"query": question})
 
-        st.markdown("### 📌 Answer:")
+        st.markdown("### Answer:")
         st.write(result["result"])
 
-        with st.expander("🔍 Sources:"):
+        with st.expander("Sources:"):
             for doc in result["source_documents"]:
                 st.markdown(f"**Source:** {doc.metadata.get('source', 'Unknown')}")
                 st.markdown(doc.page_content[:500] + "...")
