@@ -44,4 +44,4 @@ This project is an AI assistant that uses the text of the Constitution of the Re
 
 ## License
 
-This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
+This project is licensed under the MIT License
