@@ -8,16 +8,16 @@ from langchain.llms import Ollama
 import tempfile
 import os
 
-st.set_page_config(page_title="🇰🇿 Конституция РК — AI Ассистент")
+st.set_page_config(page_title="🇰🇿 Constitution of the Republic of Kazakhstan - AI Assistant")
 
-st.title("🇰🇿 Конституция РК — AI Ассистент")
-st.markdown("Загрузите .txt файл Конституции:")
+st.title("🇰🇿 Constitution of the Republic of Kazakhstan - AI Assistant")
+st.markdown("Download the Constitution .txt file:")
 
-uploaded_file = st.file_uploader("Выберите файл", type=["txt"])
+uploaded_file = st.file_uploader("Select file", type=["txt"])
 
 # Загрузка и индексация файла
 if uploaded_file:
-    st.success(f"Файл {uploaded_file.name} успешно загружен как TXT!")
+    st.success(f"File {uploaded_file.name} successfully uploaded as TXT!")
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".txt", mode='w', encoding="utf-8") as tmp_file:
         content = uploaded_file.read().decode("utf-8")
@@ -30,18 +30,18 @@ if uploaded_file:
     splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     texts = splitter.split_documents(documents)
 
-    embeddings = OllamaEmbeddings(model="llama3")  # можно заменить на mistral
+    embeddings = OllamaEmbeddings(model="llama3")
     vectorstore = FAISS.from_documents(texts, embeddings)
 
     st.session_state.vectorstore = vectorstore
     os.remove(tmp_filepath)  # удалить временный файл
 
 # Поле для ввода вопроса
-question = st.text_input("Введите вопрос по Конституции:")
+question = st.text_input("Enter a question about the Constitution:")
 
 if question:
     if "vectorstore" not in st.session_state:
-        st.warning("Сначала загрузите файл с Конституцией.")
+        st.warning("First, download the Constitution file.")
     else:
         llm = Ollama(model="llama3")
         qa_chain = RetrievalQA.from_chain_type(
@@ -50,13 +50,13 @@ if question:
             return_source_documents=True
         )
 
-        with st.spinner("Генерирую ответ..."):
+        with st.spinner("Generating a response..."):
             result = qa_chain.invoke({"query": question})
 
-        st.markdown("### 📌 Ответ:")
+        st.markdown("### 📌 Answer:")
         st.write(result["result"])
 
-        with st.expander("🔍 Источники:"):
+        with st.expander("🔍 Sources:"):
             for doc in result["source_documents"]:
-                st.markdown(f"**Источник:** {doc.metadata.get('source', 'Неизвестен')}")
+                st.markdown(f"**Source:** {doc.metadata.get('source', 'Unknown')}")
                 st.markdown(doc.page_content[:500] + "...")
