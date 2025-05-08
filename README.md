@@ -42,14 +42,6 @@
     streamlit run app.py
     ```
 
-## Contributing
-
-1. Форкните репозиторий.
-2. Создайте свою ветку (`git checkout -b feature-branch`).
-3. Внесите изменения и сделайте коммит (`git commit -am 'Add new feature'`).
-4. Отправьте изменения на удалённый репозиторий (`git push origin feature-branch`).
-5. Создайте Pull Request.
-
 ## License
 
 Этот проект лицензирован под MIT License - см. [LICENSE.md](LICENSE.md) для подробностей.
