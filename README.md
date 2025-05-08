@@ -1,12 +1,12 @@
 # 🇰🇿 AI Ассистент - Конституция РК
 
-Этот проект представляет собой AI-ассистента, который использует текст Конституции Республики Казахстан для ответа на вопросы. Загружайте текстовые файлы Конституции (.txt) и задавайте вопросы ассистенту, чтобы получить ответы.
+This project is an AI assistant that uses the text of the Constitution of the Republic of Kazakhstan to answer questions. Upload text files of the Constitution (.txt) and ask questions to the assistant to get answers.
 
 ## Usage
 
-1. Загрузите файл Конституции в формате `.txt`.
-2. Введите свой вопрос в строку ввода и нажмите "Отправить".
-3. Получите ответ от AI, который использует текст Конституции для анализа.
+1. Upload the Constitution file in `.txt` format.
+2. Enter your question in the input line and click "Submit".
+3. Get an answer from the AI, which uses the text of the Constitution for analysis.
 
 ## Demo Screenshots
 
@@ -16,32 +16,32 @@
 
 ## Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
     ```bash
     git clone https://github.com/justASleepyMZ/AI-assistant.git
     ```
 
-2. Перейдите в директорию проекта:
+2. Go to the project directory:
     ```bash
     cd AI-assistant
     ```
 
-3. Создайте виртуальное окружение и активируйте его:
+3. Create a virtual environment and activate it:
     ```bash
     python -m venv .venv
     .\.venv\Scripts\activate
     ```
 
-4. Установите все зависимости:
+4. Install all dependencies:
     ```bash
     pip install -r requirements.txt
     ```
 
-5. Запустите приложение:
+5. Launch the application:
     ```bash
     streamlit run app.py
     ```
 
 ## License
 
-Этот проект лицензирован под MIT License - см. [LICENSE.md](LICENSE.md) для подробностей.
+This project is licensed under the MIT License - see [LICENSE.md](LICENSE.md) for details.
